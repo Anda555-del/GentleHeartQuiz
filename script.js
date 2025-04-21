@@ -13,6 +13,5 @@ document.addEventListener("DOMContentLoaded", function () {
         result.textContent = "คุณอาจต้องการพื้นที่อ่อนโยนและการสนับสนุนทางใจเพิ่มเติม";
       }
     });
-  });
 });
 <script src="script.js"></script>
