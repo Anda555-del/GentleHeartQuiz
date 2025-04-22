@@ -1,83 +1,103 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GentleHeartQuiz</title>
-  <style>
-    body {
-      font-family: "Noto Sans Thai", sans-serif;
-      background-color: #fefefe;
-      color: #222;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    h1 {
-      font-size: 28px;
-      color: #444;
-    }
-    label {
-      display: block;
-      margin: 12px 0 4px;
-    }
-    select, input[type="submit"] {
-      font-size: 16px;
-      padding: 8px;
-      width: 100%;
-      margin-bottom: 16px;
-    }
-    .result {
-      margin-top: 20px;
-      font-weight: bold;
-      color: #006666;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แบบทดสอบความพร้อมในการอ่านสื่อเข้มข้น</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-rose-50 min-h-screen flex items-center justify-center">
+  <div class="max-w-2xl w-full bg-white p-8 rounded-2xl shadow-lg">
+    <h1 class="text-2xl font-bold text-rose-700 mb-6 text-center">
+      แบบทดสอบความพร้อมทางอารมณ์
+    </h1>
+    <form id="quizForm" class="space-y-6">
+      
+      <!-- Question 1 -->
+      <div>
+        <p class="font-semibold text-gray-800">1. ช่วงนี้คุณรู้สึกปลอดภัยทางอารมณ์หรือไม่?</p>
+        <div class="mt-2 space-y-2">
+          <label><input type="radio" name="q1" value="0" required> รู้สึกปลอดภัย</label><br/>
+          <label><input type="radio" name="q1" value="1"> ไม่แน่ใจ</label><br/>
+          <label><input type="radio" name="q1" value="2"> รู้สึกไม่ปลอดภัย</label>
+        </div>
+      </div>
 
-  <h1>แบบทดสอบหัวใจอ่อนโยน</h1>
-  <p>วันนี้คุณรู้สึกพร้อมอ่านเรื่องราวแบบใด?</p>
+      <!-- Question 2 -->
+      <div>
+        <p class="font-semibold text-gray-800">2. เวลาคุณเจอสื่อที่มีเนื้อหาหนัก คุณรู้สึกอย่างไร?</p>
+        <div class="mt-2 space-y-2">
+          <label><input type="radio" name="q2" value="0" required> เข้าใจและรับมือได้</label><br/>
+          <label><input type="radio" name="q2" value="1"> รู้สึกเครียดเล็กน้อย</label><br/>
+          <label><input type="radio" name="q2" value="2"> รู้สึกเครียดหรือกระทบใจมาก</label>
+        </div>
+      </div>
 
-  <form id="quizForm">
-    <label for="mood">อารมณ์ตอนนี้ของคุณคือ?</label>
-    <select id="mood">
-      <option value="calm">สบายใจ</option>
-      <option value="sad">บาดใจ/เศร้า</option>
-      <option value="anxious">เครียด/หวาดระแวง</option>
-    </select>
+      <!-- Question 3 -->
+      <div>
+        <p class="font-semibold text-gray-800">3. คุณมีคนที่ไว้ใจได้ในการพูดคุยเวลารู้สึกไม่สบายใจหรือไม่?</p>
+        <div class="mt-2 space-y-2">
+          <label><input type="radio" name="q3" value="0" required> มีแน่นอน</label><br/>
+          <label><input type="radio" name="q3" value="1"> บางครั้ง</label><br/>
+          <label><input type="radio" name="q3" value="2"> แทบไม่มีหรือไม่มีเลย</label>
+        </div>
+      </div>
 
-    <label for="sensitivity">คุณรู้สึกว่าตัวเองรับมือกับเนื้อหาหนักๆ ได้ไหม?</label>
-    <select id="sensitivity">
-      <option value="yes">ได้</option>
-      <option value="medium">พอได้</option>
-      <option value="no">ไม่อยากเลย</option>
-    </select>
+      <!-- Question 4 -->
+      <div>
+        <p class="font-semibold text-gray-800">4. คุณสามารถรับมือกับความรู้สึกกลัวหรือความเครียดได้ดีเพียงใด?</p>
+        <div class="mt-2 space-y-2">
+          <label><input type="radio" name="q4" value="0" required> รับมือได้ดี</label><br/>
+          <label><input type="radio" name="q4" value="1"> พอรับมือได้บ้าง</label><br/>
+          <label><input type="radio" name="q4" value="2"> รู้สึกจมอยู่กับความกลัว</label>
+        </div>
+      </div>
 
-    <input type="submit" value="ดูผลคำแนะนำ">
-  </form>
+      <!-- Question 5 -->
+      <div>
+        <p class="font-semibold text-gray-800">5. คุณมักจะรู้สึกมีคุณค่าในตัวเองหรือไม่?</p>
+        <div class="mt-2 space-y-2">
+          <label><input type="radio" name="q5" value="0" required> รู้สึกมีคุณค่า</label><br/>
+          <label><input type="radio" name="q5" value="1"> ไม่แน่ใจ</label><br/>
+          <label><input type="radio" name="q5" value="2"> รู้สึกด้อยค่า</label>
+        </div>
+      </div>
 
-  <div id="result" class="result"></div>
+      <!-- Submit Button -->
+      <div class="text-center mt-6">
+        <button type="submit" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2 px-6 rounded-full">
+          ดูผลลัพธ์
+        </button>
+      </div>
+    </form>
+
+    <!-- Result -->
+    <div id="result" class="mt-8 hidden text-center text-lg font-medium text-gray-800"></div>
+  </div>
 
   <script>
-    document.getElementById("quizForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const mood = document.getElementById("mood").value;
-      const sensitivity = document.getElementById("sensitivity").value;
+    document.getElementById('quizForm').addEventListener('submit', function (e) {
+      e.preventDefault();
 
-      let resultText = "";
+      let score = 0;
+      const totalQuestions = 5;
 
-      if (mood === "calm" && sensitivity === "yes") {
-        resultText = "คุณพร้อมสำหรับเรื่องราวเข้มข้น เช่น สืบสวน ดราม่า หรือจิตวิทยา";
-      } else if (mood === "sad" || sensitivity === "no") {
-        resultText = "วันนี้ลองเลือกเรื่องอบอุ่นใจ เบาสบาย หรือมีพลังบวกจะดีกว่า";
-      } else {
-        resultText = "คุณอาจเหมาะกับเนื้อหาที่มีสาระและเข้าใจง่าย เช่น แรงบันดาลใจหรือสารคดีเบาๆ";
+      for (let i = 1; i <= totalQuestions; i++) {
+        const answer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (answer) score += parseInt(answer.value);
       }
 
-      document.getElementById("result").innerText = resultText;
+      const result = document.getElementById('result');
+      result.classList.remove('hidden');
+
+      if (score <= 3) {
+        result.textContent = "คุณดูพร้อมที่จะรับมือกับเนื้อหาหนัก ๆ ได้ดีในระดับหนึ่ง";
+      } else if (score <= 6) {
+        result.textContent = "คุณอาจต้องใช้ความระมัดระวังในการอ่านสื่อที่เข้มข้น";
+      } else {
+        result.textContent = "ขอแนะนำให้คุณพักใจ และเลือกเนื้อหาที่อ่อนโยนกับตัวเองมากขึ้น";
+      }
     });
   </script>
-
-<script src="script.js"></script>
 </body>
 </html>
