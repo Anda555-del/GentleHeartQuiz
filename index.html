@@ -141,3 +141,44 @@
 
 </body>
 </html>
+// JS
+document.getElementById("readinessForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const state = document.getElementById("emotionalState").value;
+  const resultBox = document.getElementById("result");
+
+  resultBox.className = "result-box"; // reset classes
+
+  if (state === "calm") {
+    resultBox.classList.add("result-ready");
+    resultBox.innerHTML = `<img src="happy.png" width="60"><p>คุณพร้อมสำหรับเนื้อหาเข้มข้น เช่น จิตวิทยา ดราม่า หรือสาระลึกซึ้ง</p>`;
+  } else if (state === "sensitive") {
+    resultBox.classList.add("result-sensitive");
+    resultBox.innerHTML = `<img src="care.png" width="60"><p>วันนี้ควรเลือกอ่านสิ่งที่ปลอบใจ เช่น นิทาน อบอุ่น หรือเรื่องสั้นเบาๆ</p>`;
+  } else {
+    resultBox.classList.add("result-neutral");
+    resultBox.innerHTML = `<img src="neutral.png" width="60"><p>คุณอาจเหมาะกับเนื้อหาสาระกลางๆ เข้าใจง่าย เช่น แรงบันดาลใจหรือบันทึกชีวิต</p>`;
+  }
+});
+/* CSS */
+.result-box {
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+}
+
+.result-ready {
+  background-color: #d2f8d2;
+  border: 2px solid #54b96d;
+}
+
+.result-sensitive {
+  background-color: #ffe0e0;
+  border: 2px solid #e35b5b;
+}
+
+.result-neutral {
+  background-color: #fff4cc;
+  border: 2px solid #e1c02f;
+}
