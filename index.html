@@ -1,103 +1,143 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>แบบทดสอบความพร้อมในการอ่านสื่อเข้มข้น</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <title>แบบทดสอบความพร้อมในการอ่านเนื้อหาเข้มข้น</title>
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h2 {
+      color: #444;
+    }
+
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+    }
+
+    select, button {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .result-box {
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+    }
+
+    .result-ready {
+      background-color: #d2f8d2;
+      border: 2px solid #54b96d;
+    }
+
+    .result-sensitive {
+      background-color: #ffe0e0;
+      border: 2px solid #e35b5b;
+    }
+
+    .result-neutral {
+      background-color: #fff4cc;
+      border: 2px solid #e1c02f;
+    }
+
+    .result-image {
+      width: 100%;
+      max-width: 300px;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
-<body class="bg-rose-50 min-h-screen flex items-center justify-center">
-  <div class="max-w-2xl w-full bg-white p-8 rounded-2xl shadow-lg">
-    <h1 class="text-2xl font-bold text-rose-700 mb-6 text-center">
-      แบบทดสอบความพร้อมทางอารมณ์
-    </h1>
-    <form id="quizForm" class="space-y-6">
-      
-      <!-- Question 1 -->
-      <div>
-        <p class="font-semibold text-gray-800">1. ช่วงนี้คุณรู้สึกปลอดภัยทางอารมณ์หรือไม่?</p>
-        <div class="mt-2 space-y-2">
-          <label><input type="radio" name="q1" value="0" required> รู้สึกปลอดภัย</label><br/>
-          <label><input type="radio" name="q1" value="1"> ไม่แน่ใจ</label><br/>
-          <label><input type="radio" name="q1" value="2"> รู้สึกไม่ปลอดภัย</label>
-        </div>
-      </div>
+<body>
 
-      <!-- Question 2 -->
-      <div>
-        <p class="font-semibold text-gray-800">2. เวลาคุณเจอสื่อที่มีเนื้อหาหนัก คุณรู้สึกอย่างไร?</p>
-        <div class="mt-2 space-y-2">
-          <label><input type="radio" name="q2" value="0" required> เข้าใจและรับมือได้</label><br/>
-          <label><input type="radio" name="q2" value="1"> รู้สึกเครียดเล็กน้อย</label><br/>
-          <label><input type="radio" name="q2" value="2"> รู้สึกเครียดหรือกระทบใจมาก</label>
-        </div>
-      </div>
+  <h2>แบบทดสอบประเมินความพร้อมในการอ่านเนื้อหาเข้มข้น</h2>
 
-      <!-- Question 3 -->
-      <div>
-        <p class="font-semibold text-gray-800">3. คุณมีคนที่ไว้ใจได้ในการพูดคุยเวลารู้สึกไม่สบายใจหรือไม่?</p>
-        <div class="mt-2 space-y-2">
-          <label><input type="radio" name="q3" value="0" required> มีแน่นอน</label><br/>
-          <label><input type="radio" name="q3" value="1"> บางครั้ง</label><br/>
-          <label><input type="radio" name="q3" value="2"> แทบไม่มีหรือไม่มีเลย</label>
-        </div>
-      </div>
+  <form id="quizForm">
+    <label for="mood">วันนี้อารมณ์คุณเป็นแบบไหน?</label>
+    <select id="mood">
+      <option value="calm">สงบ</option>
+      <option value="sad">เศร้า/สับสน</option>
+      <option value="neutral">ปกติทั่วไป</option>
+    </select>
 
-      <!-- Question 4 -->
-      <div>
-        <p class="font-semibold text-gray-800">4. คุณสามารถรับมือกับความรู้สึกกลัวหรือความเครียดได้ดีเพียงใด?</p>
-        <div class="mt-2 space-y-2">
-          <label><input type="radio" name="q4" value="0" required> รับมือได้ดี</label><br/>
-          <label><input type="radio" name="q4" value="1"> พอรับมือได้บ้าง</label><br/>
-          <label><input type="radio" name="q4" value="2"> รู้สึกจมอยู่กับความกลัว</label>
-        </div>
-      </div>
+    <label for="sensitivity">คุณรู้สึกอ่อนไหวง่ายกับเรื่องต่างๆ ไหม?</label>
+    <select id="sensitivity">
+      <option value="yes">ใช่</option>
+      <option value="no">ไม่</option>
+    </select>
 
-      <!-- Question 5 -->
-      <div>
-        <p class="font-semibold text-gray-800">5. คุณมักจะรู้สึกมีคุณค่าในตัวเองหรือไม่?</p>
-        <div class="mt-2 space-y-2">
-          <label><input type="radio" name="q5" value="0" required> รู้สึกมีคุณค่า</label><br/>
-          <label><input type="radio" name="q5" value="1"> ไม่แน่ใจ</label><br/>
-          <label><input type="radio" name="q5" value="2"> รู้สึกด้อยค่า</label>
-        </div>
-      </div>
+    <label for="energy">ระดับพลังงานวันนี้</label>
+    <select id="energy">
+      <option value="high">พลังล้น</option>
+      <option value="medium">กลางๆ</option>
+      <option value="low">เหนื่อย/หมดแรง</option>
+    </select>
 
-      <!-- Submit Button -->
-      <div class="text-center mt-6">
-        <button type="submit" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2 px-6 rounded-full">
-          ดูผลลัพธ์
-        </button>
-      </div>
-    </form>
+    <label for="focus">วันนี้มีสมาธิมากน้อยแค่ไหน?</label>
+    <select id="focus">
+      <option value="good">ดีมาก</option>
+      <option value="normal">พอใช้</option>
+      <option value="poor">หลุดโฟกัสง่าย</option>
+    </select>
 
-    <!-- Result -->
-    <div id="result" class="mt-8 hidden text-center text-lg font-medium text-gray-800"></div>
-  </div>
+    <label for="emotion">รู้สึกถึงความสุขหรือรักในใจไหม?</label>
+    <select id="emotion">
+      <option value="yes">ใช่เลย</option>
+      <option value="not_sure">ไม่แน่ใจ</option>
+      <option value="no">ไม่ค่อย</option>
+    </select>
+
+    <button type="submit">ประเมินผล</button>
+  </form>
+
+  <div id="result" class="result-box"></div>
 
   <script>
-    document.getElementById('quizForm').addEventListener('submit', function (e) {
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      let score = 0;
-      const totalQuestions = 5;
+      const mood = document.getElementById("mood").value;
+      const sensitivity = document.getElementById("sensitivity").value;
+      const energy = document.getElementById("energy").value;
+      const focus = document.getElementById("focus").value;
+      const emotion = document.getElementById("emotion").value;
 
-      for (let i = 1; i <= totalQuestions; i++) {
-        const answer = document.querySelector(`input[name="q${i}"]:checked`);
-        if (answer) score += parseInt(answer.value);
-      }
+      let resultText = "";
+      let resultClass = "";
+      let imageUrl = "";
 
-      const result = document.getElementById('result');
-      result.classList.remove('hidden');
-
-      if (score <= 3) {
-        result.textContent = "คุณดูพร้อมที่จะรับมือกับเนื้อหาหนัก ๆ ได้ดีในระดับหนึ่ง";
-      } else if (score <= 6) {
-        result.textContent = "คุณอาจต้องใช้ความระมัดระวังในการอ่านสื่อที่เข้มข้น";
+      if (mood === "calm" && sensitivity === "no" && energy !== "low" && focus !== "poor") {
+        resultText = "คุณพร้อมสำหรับเนื้อหาที่เข้มข้น เช่น สืบสวน ดราม่า หรือจิตวิทยาเชิงลึก";
+        resultClass = "result-ready";
+        imageUrl = "https://i.imgur.com/TD2f8IF.png"; // สีเขียว สดใส
+      } else if (mood === "sad" || sensitivity === "yes" || emotion === "no") {
+        resultText = "วันนี้เลือกเรื่องอบอุ่นใจ เบาสบาย หรือมีพลังบวกจะดีกว่า";
+        resultClass = "result-sensitive";
+        imageUrl = "https://i.imgur.com/LV3RHP5.png"; // สีชมพูอ่อน
       } else {
-        result.textContent = "ขอแนะนำให้คุณพักใจ และเลือกเนื้อหาที่อ่อนโยนกับตัวเองมากขึ้น";
+        resultText = "คุณอาจเหมาะกับเนื้อหาที่มีสาระและเข้าใจง่าย เช่น แรงบันดาลใจหรือสารคดีเบาๆ";
+        resultClass = "result-neutral";
+        imageUrl = "https://i.imgur.com/xfwOvYf.png"; // สีเหลืองนวล
       }
+
+      const resultBox = document.getElementById("result");
+      resultBox.className = "result-box " + resultClass;
+      resultBox.innerHTML = `
+        <p>${resultText}</p>
+        <img class="result-image" src="${imageUrl}" alt="ผลลัพธ์ภาพประกอบ">
+      `;
     });
   </script>
+
 </body>
 </html>
